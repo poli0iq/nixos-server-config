@@ -1,0 +1,9 @@
+keys:
+  - &poli_homura ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNOTz1K4rWBIMQ/FjWY6/CgUm/doRKs9w6MB2khUtnm poli@homura
+  - &moeka age1gfu88hvhwrxev9ln9r69jkpzpz3vpcr94tjrysq337fu2uvfpe6qzdyp37
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yml|yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *poli_homura
+      - *moeka
