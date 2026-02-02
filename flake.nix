@@ -13,29 +13,39 @@
     };
   };
 
-  outputs = { nixpkgs, disko, sops-nix, ... }@inputs: {
-    nixosConfigurations = {
-      moeka = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system
-          ./system/moeka
+  outputs =
+    {
+      nixpkgs,
+      disko,
+      sops-nix,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        moeka = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./system
+            ./system/moeka
 
-          disko.nixosModules.disko
-          sops-nix.nixosModules.default
+            disko.nixosModules.disko
+            sops-nix.nixosModules.default
 
-          ./services/acme
-          ./services/sing-box
+            ./services/acme
+            ./services/sing-box
 
-          ({ ... }: {
-            networking = {
-              hostName = "moeka";
-              domain = "0iq.dev";
-            };
-          })
-        ];
+            (
+              { ... }:
+              {
+                networking = {
+                  hostName = "moeka";
+                  domain = "0iq.dev";
+                };
+              }
+            )
+          ];
+        };
       };
     };
-  };
 }

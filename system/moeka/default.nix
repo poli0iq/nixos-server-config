@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./disko.nix
     ./hardware-configuration.nix
@@ -20,10 +21,16 @@
     interfaces = {
       ens3 = {
         ipv4.addresses = [
-          { address = "193.135.137.176"; prefixLength = 32; }
+          {
+            address = "193.135.137.176";
+            prefixLength = 32;
+          }
         ];
         ipv4.routes = [
-          { address = "172.16.0.1"; prefixLength = 32; }
+          {
+            address = "172.16.0.1";
+            prefixLength = 32;
+          }
         ];
       };
     };

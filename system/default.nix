@@ -1,4 +1,11 @@
-{ pkgs, lib, config, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
+{
   nix = {
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
@@ -6,7 +13,10 @@
       auto-optimise-store = true;
       experimental-features = "nix-command flakes";
 
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
 
     gc = {

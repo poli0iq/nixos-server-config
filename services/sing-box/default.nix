@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   networking.firewall.allowedTCPPorts = [ 443 ];
 
   services.sing-box = {

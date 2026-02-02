@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   security.acme = {
     acceptTerms = true;
 

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   disko.devices.disk.vda = {
     type = "disk";
     device = "/dev/vda";
