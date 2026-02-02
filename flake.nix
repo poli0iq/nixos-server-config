@@ -1,7 +1,6 @@
 {
   inputs = {
-    # TODO: switch to 25.05 once released
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
 
     disko = {
       url = "github:nix-community/disko";
