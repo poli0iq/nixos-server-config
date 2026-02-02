@@ -16,21 +16,6 @@
 
   outputs = { nixpkgs, disko, sops-nix, ... }@inputs: {
     nixosConfigurations = {
-      kyubey = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system
-          ./system/kyubey
-
-          disko.nixosModules.disko
-
-          ({ ... }: {
-            networking.hostName = "kyubey";
-          })
-        ];
-      };
-
       moeka = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
