@@ -28,8 +28,7 @@
     hashedPasswordFile = config.sops.secrets.poli_password.path;
 
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNOTz1K4rWBIMQ/FjWY6/CgUm/doRKs9w6MB2khUtnm poli@homura"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC5D/aoOBkm+KWODrdIYKX5a2AYCoC+gdmOIYOQRdfI7 poli@sayaka"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1uUmneJb2GH7+NsZfjMz2tmoo1aBaXzuuwKLeewCJG poli@madoka"
     ];
   };
 
