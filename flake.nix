@@ -33,7 +33,7 @@
             sops-nix.nixosModules.default
 
             ./services/acme
-            ./services/sing-box
+            ./services/nginx-redirects
 
             (
               { ... }:
