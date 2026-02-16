@@ -29,7 +29,6 @@
   sops = {
     defaultSopsFile = ../secrets/keys.yml;
     secrets.poli_password.neededForUsers = true;
-    secrets.sing-box_poli = { };
     secrets.spaceship_api_key = { };
     secrets.spaceship_api_secret = { };
   };
