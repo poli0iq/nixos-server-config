@@ -41,7 +41,7 @@
               {
                 networking = {
                   hostName = "moeka";
-                  domain = "0iq.dev";
+                  domain = "host.0iq.dev";
                 };
               }
             )
