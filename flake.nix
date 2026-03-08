@@ -17,14 +17,18 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs =
     {
+      self,
       nixpkgs,
       disko,
       sops-nix,
       lanzaboote,
+      deploy-rs,
       ...
     }@inputs:
     {
@@ -77,5 +81,24 @@
           ];
         };
       };
+
+      deploy = {
+        sshUser = "poli";
+        user = "root";
+        sudo = "sudo -u";
+        remoteBuild = true;
+
+        nodes.suzuha = with self.nixosConfigurations; {
+          hostname = with suzuha.config.networking; "${hostName}.${domain}";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos suzuha;
+        };
+
+        nodes.moeka = with self.nixosConfigurations; {
+          hostname = with moeka.config.networking; "${hostName}.${domain}";
+          profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos moeka;
+        };
+      };
+
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }

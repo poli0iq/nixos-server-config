@@ -1,7 +1,8 @@
 ## Updating
 
 ```bash
-nixos-rebuild --flake .#<host> switch --target-host poli@<host>.host.0iq.dev --use-remote-sudo
+# nixpkgs#deploy-rs
+deploy .#<host>
 ```
 
 ## Dedicated server
