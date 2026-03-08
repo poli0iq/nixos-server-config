@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   inputs,
   ...
 }:
@@ -28,7 +27,6 @@
 
   sops = {
     defaultSopsFile = ../secrets/keys.yml;
-    secrets.poli_password.neededForUsers = true;
     secrets.spaceship_api_key = { };
     secrets.spaceship_api_secret = { };
   };
@@ -36,7 +34,6 @@
   users.users.poli = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    hashedPasswordFile = config.sops.secrets.poli_password.path;
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1uUmneJb2GH7+NsZfjMz2tmoo1aBaXzuuwKLeewCJG poli@madoka"

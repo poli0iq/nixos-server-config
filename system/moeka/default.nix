@@ -1,9 +1,12 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ./disko.nix
     ./hardware-configuration.nix
   ];
+
+  sops.secrets.poli_moeka_password.neededForUsers = true;
+  users.users.poli.hashedPasswordFile = config.sops.secrets.poli_moeka_password.path;
 
   boot.loader.grub = {
     # no need to set devices, disko will add all devices that have a EF02 partition to the list already
