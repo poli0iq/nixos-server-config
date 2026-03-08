@@ -26,9 +26,8 @@
   };
 
   sops = {
-    defaultSopsFile = ../secrets/keys.yml;
-    secrets.spaceship_api_key = { };
-    secrets.spaceship_api_secret = { };
+    secrets.spaceship_api_key.sopsFile = ../secrets/common.yml;
+    secrets.spaceship_api_secret.sopsFile = ../secrets/common.yml;
   };
 
   users.users.poli = {

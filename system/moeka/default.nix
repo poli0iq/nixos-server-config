@@ -5,7 +5,11 @@
     ./hardware-configuration.nix
   ];
 
-  sops.secrets.poli_moeka_password.neededForUsers = true;
+  sops = {
+    defaultSopsFile = ../../secrets/moeka.yml;
+    secrets.poli_moeka_password.neededForUsers = true;
+  };
+
   users.users.poli.hashedPasswordFile = config.sops.secrets.poli_moeka_password.path;
 
   boot.loader.grub = {
