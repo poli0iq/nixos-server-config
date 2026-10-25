@@ -1,7 +1,6 @@
 {
   inputs = {
-    # TODO: switch to 26.05 once released
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
 
     disko = {
       url = "github:nix-community/disko";
@@ -14,7 +13,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
+      url = "github:nix-community/lanzaboote/v1.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
