@@ -94,6 +94,9 @@
 
         nodes.moeka = with self.nixosConfigurations; {
           hostname = with moeka.config.networking; "${hostName}.${domain}";
+          # 1G of RAM is not enough for the daemon to substitute the closure
+          remoteBuild = false;
+          fastConnection = true;
           profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos moeka;
         };
       };
