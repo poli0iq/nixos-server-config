@@ -24,22 +24,16 @@
       "1.1.1.1"
       "8.8.8.8"
     ];
-    defaultGateway = "172.16.0.1";
-    interfaces = {
-      ens3 = {
-        ipv4.addresses = [
-          {
-            address = "193.135.137.176";
-            prefixLength = 32;
-          }
-        ];
-        ipv4.routes = [
-          {
-            address = "172.16.0.1";
-            prefixLength = 32;
-          }
-        ];
-      };
+    # The gateway is outside of the /32, so the interface must be explicit
+    defaultGateway = {
+      address = "172.16.0.1";
+      interface = "ens3";
     };
+    interfaces.ens3.ipv4.addresses = [
+      {
+        address = "193.135.137.176";
+        prefixLength = 32;
+      }
+    ];
   };
 }
