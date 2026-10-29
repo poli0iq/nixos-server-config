@@ -3,12 +3,6 @@ keys:
   - &moeka age1gfu88hvhwrxev9ln9r69jkpzpz3vpcr94tjrysq337fu2uvfpe6qzdyp37
   - &suzuha age1jczfhul4gxsa8hwdjkeaafseajz557nz37m9manuahggnj83u52q8zllwu
 creation_rules:
-  - path_regex: secrets/common\.yml$
-    key_groups:
-    - age:
-      - *poli_madoka
-      - *moeka
-      - *suzuha
   - path_regex: secrets/moeka\.yml$
     key_groups:
     - age:
